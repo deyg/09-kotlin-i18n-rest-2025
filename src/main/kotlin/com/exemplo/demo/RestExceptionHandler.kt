@@ -22,7 +22,7 @@ class RestExceptionHandler {
         }
         val body = mapOf(
             "timestamp" to Instant.now().toString(),
-            "status" to 400,
+            "status" to HttpStatus.BAD_REQUEST.value(),
             "errors" to errors
         )
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body)
