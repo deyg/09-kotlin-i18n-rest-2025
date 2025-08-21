@@ -257,3 +257,6 @@ curl http://localhost:8080/api/saudacao
 curl "http://localhost:8080/api/saudacao?lang=pt"
 curl -X POST http://localhost:8080/api/users -H "Content-Type: application/json" -d "{\"name\":\"\",\"email\":\"x\"}"
 curl -X POST "http://localhost:8080/api/users?lang=pt" -H "Content-Type: application/json" -d "{\"name\":\"\",\"email\":\"x\"}"
+
+## 6) Deploy AWS
+Consulte o [guia de deploy na AWS](docs/deploy-aws.md).
