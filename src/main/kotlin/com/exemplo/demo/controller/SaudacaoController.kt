@@ -8,6 +8,9 @@ import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.security.core.Authentication
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
+import com.exemplo.demo.dto.UserDto
+import jakarta.validation.Valid
+
 
 @RestController
 @RequestMapping("/api")
@@ -26,6 +29,7 @@ class SaudacaoController(private val messages: MessageSource) {
     }
 
     @PostMapping("/users")
+
     @PreAuthorize("hasRole('ADMIN')")
     fun create(@Validated @RequestBody dto: UserDto): ResponseEntity<Any> {
         val locale = LocaleContextHolder.getLocale()
