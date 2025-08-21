@@ -260,6 +260,10 @@ Use o zip já configurado (abra no IntelliJ):
 mvn -U clean package -DskipTests
 mvn spring-boot:run
 
+
+## Docker
+docker compose up --build
+
 ### Docker
 A `Dockerfile` está na raiz do projeto.
 
@@ -269,6 +273,7 @@ docker run -p 8080:8080 kotlin-i18n-rest-2025
 ```
 
 Para encerrar o container, use `Ctrl+C` ou `docker stop <container>`.
+
 
 ## Testes
 curl http://localhost:8080/api/saudacao
