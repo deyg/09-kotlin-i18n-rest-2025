@@ -36,7 +36,8 @@ src/
 
 ## 2) `pom.xml` (copie e cole)
 
-> Inclui **kotlin-maven-allopen** para habilitar `<plugin>spring</plugin>` e fixa **language/api 2.0** (evita o erro `api-version > language-version`).
+> Inclui **kotlin-maven-allopen** para habilitar `<plugin>spring</plugin>` e fixa **language/api 2.0**
+> (evita o erro `api-version > language-version`).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
