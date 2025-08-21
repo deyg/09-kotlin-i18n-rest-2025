@@ -36,7 +36,8 @@ src/
 
 ## 2) `pom.xml` (copie e cole)
 
-> Inclui **kotlin-maven-allopen** para habilitar `<plugin>spring</plugin>` e fixa **language/api 2.0** (evita o erro `api-version > language-version`).
+> Inclui **kotlin-maven-allopen** para habilitar `<plugin>spring</plugin>` e fixa **language/api 2.0**
+> (evita o erro `api-version > language-version`).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -203,6 +204,17 @@ mvn -U clean package -DskipTests
 mvn spring-boot:run
 ```
 
+### Docker
+
+Há um `Dockerfile` na raiz do projeto.
+
+```bash
+docker build -t kotlin-i18n-rest-2025 .
+docker run -p 8080:8080 kotlin-i18n-rest-2025
+```
+
+Para encerrar o container, pressione `Ctrl+C` ou execute `docker stop <container>`.
+
 ---
 
 ## 4) Testes (i18n)
@@ -235,11 +247,7 @@ curl -X POST "http://localhost:8080/api/users?lang=pt" -H "Content-Type: applica
 ## ZIP pronto (opcional)
 Use o zip já configurado (abra no IntelliJ):
 `kotlin-i18n-rest-2025-v2.zip`
-
-
-
-
-
+---
 
 
 # Kotlin i18n REST - IntelliJ - 2025
@@ -267,3 +275,4 @@ curl http://localhost:8080/api/saudacao
 curl "http://localhost:8080/api/saudacao?lang=pt"
 curl -X POST http://localhost:8080/api/users -H "Content-Type: application/json" -d "{\"name\":\"\",\"email\":\"x\"}"
 curl -X POST "http://localhost:8080/api/users?lang=pt" -H "Content-Type: application/json" -d "{\"name\":\"\",\"email\":\"x\"}"
+=======
