@@ -1,6 +1,18 @@
 
 # Deploy na AWS
 
+## Resiliência
+
+Para garantir alta disponibilidade e rápida recuperação de falhas:
+
+- Utilize múltiplas zonas de disponibilidade para evitar pontos únicos de falha.
+- Configure backups automatizados dos dados críticos.
+- Implemente health checks para monitorar e reiniciar instâncias problemáticas.
+
+=======
+
+# Deploy na AWS
+
 Este documento descreve como realizar o deploy da aplicação na Amazon Web Services.
 
 ## Segurança
@@ -86,3 +98,4 @@ docker push <AWS_ACCOUNT_ID>.dkr.ecr.<REGIAO>.amazonaws.com/kotlin-i18n-rest:lat
 ---
 
 Pronto! O serviço Kotlin/Spring Boot estará disponível na infraestrutura AWS escolhida.
+
