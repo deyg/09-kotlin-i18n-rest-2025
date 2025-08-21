@@ -8,9 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.security.core.Authentication
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
-import com.exemplo.demo.dto.UserDto
 import com.exemplo.demo.service.SaudacaoService
-import jakarta.validation.Valid
 
 
 @RestController
@@ -27,11 +25,6 @@ class SaudacaoController(
         authentication: Authentication
     ): Map<String, Any> {
         val locale = LocaleContextHolder.getLocale()
-
-        val hello = saudacaoService.obterSaudacao(nome)
-        return mapOf("message" to hello, "locale" to locale.toLanguageTag())
-    
-
         val user = authentication.name
         val hello = messages.getMessage("saudacao.hello", arrayOf(nome ?: user), locale)
         return mapOf("message" to hello, "locale" to locale.toLanguageTag(), "user" to user)

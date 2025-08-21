@@ -6,7 +6,9 @@ import org.springframework.retry.annotation.EnableRetry
 
 @EnableRetry
 @SpringBootApplication(proxyBeanMethods = false)
-class Application {
+class
+
+Application {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
