@@ -204,6 +204,17 @@ mvn -U clean package -DskipTests
 mvn spring-boot:run
 ```
 
+### Docker
+
+Há um `Dockerfile` na raiz do projeto.
+
+```bash
+docker build -t kotlin-i18n-rest-2025 .
+docker run -p 8080:8080 kotlin-i18n-rest-2025
+```
+
+Para encerrar o container, pressione `Ctrl+C` ou execute `docker stop <container>`.
+
 ---
 
 ## 4) Testes (i18n)
