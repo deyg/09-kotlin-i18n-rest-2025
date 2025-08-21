@@ -235,25 +235,3 @@ curl -X POST "http://localhost:8080/api/users?lang=pt" -H "Content-Type: applica
 ## ZIP pronto (opcional)
 Use o zip já configurado (abra no IntelliJ):
 `kotlin-i18n-rest-2025-v2.zip`
-
-
-
-
-
-
-
-# Kotlin i18n REST - IntelliJ - 2025
-- Java 17
-- Spring Boot 3.3.3
-- Kotlin 2.2.10
-- i18n: messages (EN default, PT-BR), troca via `?lang=pt`
-
-## Build & Run
-mvn -U clean package -DskipTests
-mvn spring-boot:run
-
-## Testes
-curl http://localhost:8080/api/saudacao
-curl "http://localhost:8080/api/saudacao?lang=pt"
-curl -X POST http://localhost:8080/api/users -H "Content-Type: application/json" -d "{\"name\":\"\",\"email\":\"x\"}"
-curl -X POST "http://localhost:8080/api/users?lang=pt" -H "Content-Type: application/json" -d "{\"name\":\"\",\"email\":\"x\"}"
