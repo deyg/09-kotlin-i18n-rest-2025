@@ -23,8 +23,6 @@ open class SecurityConfig {
     open fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
             .cors { }
-            .csrf { csrf -> csrf.disable() }
-            .authorizeHttpRequests { it.anyRequest().permitAll() }
             .csrf { it.disable() }
             .authorizeHttpRequests { auth ->
                 auth
@@ -49,6 +47,7 @@ open class SecurityConfig {
         return source
     }
 
+    @Bean
     open fun users(): UserDetailsService {
         val user = User.withUsername("user").password("{noop}password").roles("USER").build()
         val admin = User.withUsername("admin").password("{noop}admin").roles("ADMIN").build()
