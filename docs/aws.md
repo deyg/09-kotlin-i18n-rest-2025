@@ -1,5 +1,6 @@
 # Guia AWS
 
+
 ## Escalabilidade
 
 Aplicações em produção precisam se adaptar a picos de tráfego e quedas de demanda. A AWS oferece recursos nativos para escalar de forma automática e integrar com serviços gerenciados.
@@ -19,3 +20,15 @@ Aplicações em produção precisam se adaptar a picos de tráfego e quedas de d
 - **RDS**: utilize um banco relacional gerenciado; configure *security groups* e parâmetros de conexão para que as instâncias no ASG acessem o endpoint do banco.
 - **ElastiCache**: adicione camadas de cache com Redis ou Memcached; exponha o endpoint nos ambientes e ajuste políticas de segurança para liberar o acesso.
 - Combine esses serviços com o Auto Scaling para que novas instâncias já iniciem configuradas com os endpoints e credenciais corretos.
+=======
+## Economia
+
+### Instâncias Spot
+Instâncias Spot aproveitam a capacidade ociosa da AWS com descontos significativos. Use-as para workloads flexíveis que toleram interrupções e reduza custos em comparação às instâncias sob demanda.
+
+### Auto Scaling
+Configure grupos de Auto Scaling para ajustar automaticamente a quantidade de instâncias conforme a demanda. Defina políticas para desligar recursos ociosos durante períodos de baixa utilização, evitando gastos desnecessários.
+
+### Tagging
+Aplique tags consistentes em instâncias, bancos e outros recursos. Tags permitem rastrear custos por equipe, projeto ou ambiente e facilitam relatórios de consumo no AWS Cost Explorer.
+
