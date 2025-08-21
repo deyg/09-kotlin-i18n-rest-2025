@@ -252,6 +252,9 @@ Use o zip já configurado (abra no IntelliJ):
 mvn -U clean package -DskipTests
 mvn spring-boot:run
 
+## Docker
+docker compose up --build
+
 ## Testes
 curl http://localhost:8080/api/saudacao
 curl "http://localhost:8080/api/saudacao?lang=pt"
