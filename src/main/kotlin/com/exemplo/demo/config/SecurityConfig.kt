@@ -17,10 +17,10 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager
 @Configuration
 @EnableMethodSecurity
 @EnableWebSecurity
-class SecurityConfig {
+open class SecurityConfig {
 
     @Bean
-    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
+    open fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
             .cors { }
             .csrf { csrf -> csrf.disable() }
@@ -37,7 +37,7 @@ class SecurityConfig {
     }
 
     @Bean
-    fun corsConfigurationSource(): CorsConfigurationSource {
+    open fun corsConfigurationSource(): CorsConfigurationSource {
         val configuration = CorsConfiguration().apply {
             allowedOrigins = listOf("http://allowed-origin.com")
             allowedMethods = listOf("GET", "POST")
@@ -49,7 +49,7 @@ class SecurityConfig {
         return source
     }
 
-    fun users(): UserDetailsService {
+    open fun users(): UserDetailsService {
         val user = User.withUsername("user").password("{noop}password").roles("USER").build()
         val admin = User.withUsername("admin").password("{noop}admin").roles("ADMIN").build()
         return InMemoryUserDetailsManager(user, admin)
