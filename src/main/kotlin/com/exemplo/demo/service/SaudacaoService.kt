@@ -8,10 +8,10 @@ import org.springframework.retry.annotation.Retryable
 import org.springframework.stereotype.Service
 
 @Service
-class SaudacaoService(private val messages: MessageSource) {
+open class SaudacaoService(private val messages: MessageSource) {
 
     @Retryable(value = [RuntimeException::class], maxAttempts = 3, backoff = Backoff(delay = 500))
-    fun obterSaudacao(nome: String?): String {
+    open fun obterSaudacao(nome: String?): String {
         if (nome == "erro") {
             throw RuntimeException("Falha simulada")
         }
@@ -20,7 +20,7 @@ class SaudacaoService(private val messages: MessageSource) {
     }
 
     @Recover
-    fun recuperar(e: RuntimeException, nome: String?): String {
+    open fun recuperar(e: RuntimeException, nome: String?): String {
         val locale = LocaleContextHolder.getLocale()
         return messages.getMessage("saudacao.hello", arrayOf("Dev"), locale)
     }
