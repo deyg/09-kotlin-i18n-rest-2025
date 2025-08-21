@@ -6,15 +6,19 @@ import org.springframework.http.ResponseEntity
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 import com.exemplo.demo.dto.UserDto
+import com.exemplo.demo.service.SaudacaoService
 
 @RestController
 @RequestMapping("/api")
-class SaudacaoController(private val messages: MessageSource) {
+class SaudacaoController(
+    private val messages: MessageSource,
+    private val saudacaoService: SaudacaoService
+) {
 
     @GetMapping("/saudacao")
     fun saudacao(@RequestParam(required = false) nome: String?): Map<String, Any> {
         val locale = LocaleContextHolder.getLocale()
-        val hello = messages.getMessage("saudacao.hello", arrayOf(nome ?: "Dev"), locale)
+        val hello = saudacaoService.obterSaudacao(nome)
         return mapOf("message" to hello, "locale" to locale.toLanguageTag())
     }
 
