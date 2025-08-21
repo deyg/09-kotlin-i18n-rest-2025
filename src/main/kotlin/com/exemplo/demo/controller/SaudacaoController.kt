@@ -13,14 +13,14 @@ import com.exemplo.demo.service.SaudacaoService
 
 @RestController
 @RequestMapping("/api")
-class SaudacaoController(
+open class SaudacaoController(
     private val messages: MessageSource,
     private val saudacaoService: SaudacaoService
 ) {
 
     @GetMapping("/saudacao")
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
-    fun saudacao(
+    open fun saudacao(
         @RequestParam(required = false) nome: String?,
         authentication: Authentication
     ): Map<String, Any> {
@@ -32,7 +32,7 @@ class SaudacaoController(
 
     @PostMapping("/users")
     @PreAuthorize("hasRole('ADMIN')")
-    fun create(@Validated @RequestBody dto: UserDto): ResponseEntity<Any> {
+    open fun create(@Validated @RequestBody dto: UserDto): ResponseEntity<Any> {
         val locale = LocaleContextHolder.getLocale()
         val msg = messages.getMessage("user.created", arrayOf(dto.name), locale)
         return ResponseEntity.ok(mapOf("message" to msg))
