@@ -219,16 +219,27 @@ Para encerrar o container, pressione `Ctrl+C` ou execute `docker stop <container
 
 ## 4) Testes (i18n)
 
+Endpoints em `/api/**` requerem autenticação HTTP Basic. Para uso local há dois usuários pré-configurados:
+
+- `user` / `password`
+- `admin` / `admin`
+
+Exemplos:
+
 ```bash
 # EN (default)
-curl http://localhost:8080/api/saudacao
+curl -u user:password http://localhost:8080/api/saudacao
 
 # PT via query param
-curl "http://localhost:8080/api/saudacao?lang=pt"
+curl -u user:password "http://localhost:8080/api/saudacao?lang=pt"
 
 # Validação i18n (mensagens localizadas)
-curl -X POST http://localhost:8080/api/users -H "Content-Type: application/json" -d '{"name":"","email":"x"}'
-curl -X POST "http://localhost:8080/api/users?lang=pt" -H "Content-Type: application/json" -d '{"name":"","email":"x"}'
+curl -u user:password -X POST http://localhost:8080/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"name":"","email":"x"}'
+curl -u user:password -X POST "http://localhost:8080/api/users?lang=pt" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"","email":"x"}'
 ```
 
 ---
@@ -276,10 +287,14 @@ Para encerrar o container, use `Ctrl+C` ou `docker stop <container>`.
 
 
 ## Testes
-curl http://localhost:8080/api/saudacao
-curl "http://localhost:8080/api/saudacao?lang=pt"
-curl -X POST http://localhost:8080/api/users -H "Content-Type: application/json" -d "{\"name\":\"\",\"email\":\"x\"}"
-curl -X POST "http://localhost:8080/api/users?lang=pt" -H "Content-Type: application/json" -d "{\"name\":\"\",\"email\":\"x\"}"
+curl -u user:password http://localhost:8080/api/saudacao
+curl -u user:password "http://localhost:8080/api/saudacao?lang=pt"
+curl -u user:password -X POST http://localhost:8080/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"name":"","email":"x"}'
+curl -u user:password -X POST "http://localhost:8080/api/users?lang=pt" \
+  -H "Content-Type: application/json" \
+  -d '{"name":"","email":"x"}'
 ---
 
 ## 6) Deploy AWS
